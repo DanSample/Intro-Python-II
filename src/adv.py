@@ -56,11 +56,27 @@ def welcome_player(player_name):
     return welcome_msg
 
 def play_game(player):
-
+    player.display_info()
     playing = True
 
     while playing:
-        
+        action = input('Which direction will you venture? ')
+
+        if(action == 'q'):
+            playing = False
+            print(f'Thank you for playing {player.name}!')
+        else:
+            possible_actions = {
+                "n": player.move_to,
+                "s": player.move_to,
+                "e": player.move_to,
+                "w": player.move_to,
+            }
+            try:
+                possible_actions[action]
+            except KeyError:
+                print('Invalid direction, please choose a valid direction')
+
 
 def main():
     player_name = input("What is your name adventurer? ")
