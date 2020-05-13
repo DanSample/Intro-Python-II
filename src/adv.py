@@ -14,7 +14,7 @@ into the darkness. Ahead to the north, a light flickers in
 the distance, but there is no way across the chasm."""),
 
     'narrow':   Room("Narrow Passage", """The narrow passage bends here from west
-to north. The smell of gold permeates the air."""),
+to north. The smell of gold permeates the air."""),      
 
     'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
 chamber! Sadly, it has already been completely emptied by
@@ -48,4 +48,26 @@ room['treasure'].s_to = room['narrow']
 # If the user enters a cardinal direction, attempt to move to the room there.
 # Print an error message if the movement isn't allowed.
 #
-# If the user enters "q", quit the game. 
+# If the user enters "q", quit the game.
+
+def welcome_player(player_name):
+    welcome_msg = f'Welcome {player_name}'
+    return welcome_msg
+
+def play_game(player):
+
+    playing = True
+
+    while playing:
+        
+
+
+def main():
+    player_name = input("What is your name adventurer? ")
+    new_player = Player(player_name, room['outside'])
+    print(welcome_player(player_name))
+    play_game()
+
+
+if __name__ == "__main__":
+    main()
