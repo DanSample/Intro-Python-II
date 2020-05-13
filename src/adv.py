@@ -1,4 +1,5 @@
 from room import Room
+from player import Player
 
 # Declare all the rooms
 
@@ -61,12 +62,11 @@ def play_game(player):
     while playing:
         
 
-
 def main():
     player_name = input("What is your name adventurer? ")
     new_player = Player(player_name, room['outside'])
     print(welcome_player(player_name))
-    play_game()
+    play_game(new_player)
 
 
 if __name__ == "__main__":
