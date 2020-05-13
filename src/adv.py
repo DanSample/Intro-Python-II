@@ -52,15 +52,16 @@ room['treasure'].s_to = room['narrow']
 # If the user enters "q", quit the game.
 
 def welcome_player(player_name):
-    welcome_msg = f'Welcome {player_name}'
+    welcome_msg = f'Welcome {player_name}!'
     return welcome_msg
 
 def play_game(player):
-    player.display_info()
+    
     playing = True
 
     while playing:
-        action = input('Which direction will you venture? ')
+        player.display_info()
+        action = input('Which direction will you venture? ').lower()
 
         if(action == 'q'):
             playing = False
@@ -73,7 +74,7 @@ def play_game(player):
                 "w": player.move_to,
             }
             try:
-                possible_actions[action]
+                possible_actions[action](action)
             except KeyError:
                 print('Invalid direction, please choose a valid direction')
 

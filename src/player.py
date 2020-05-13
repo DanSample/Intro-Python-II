@@ -6,5 +6,19 @@ class Player:
         self.name = name
         self.current_room = current_room
 
-    def __str__(self):
-        return self.current_room
+    def display_info(self):
+        print(self.current_room)
+
+    def move_to(self, direction):
+        self.direction = direction
+
+        possible_direction = {
+            'n': 'n_to',
+            's': 's_to',
+            'e': 'e_to',
+            'w': 'w_to'
+        }
+        try:
+            self.current_room = getattr(self.current_room, possible_direction[direction])
+        except AttributeError:
+            print("You cannot move in that direction")
