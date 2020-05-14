@@ -74,7 +74,9 @@ def play_game(player):
                 "w": player.move_to,
             }
             try:
-                possible_actions[action](action)
+                """takes in the action to choose from possible_actions and then gives 
+                the action to the move_to method on player"""
+                possible_actions[action](action) 
             except KeyError:
                 print('Invalid direction, please choose a valid direction')
 

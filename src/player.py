@@ -12,13 +12,18 @@ class Player:
     def move_to(self, direction):
         self.direction = direction
 
-        possible_direction = {
+        possible_directions = {
             'n': 'n_to',
             's': 's_to',
             'e': 'e_to',
             'w': 'w_to'
         }
         try:
-            self.current_room = getattr(self.current_room, possible_direction[direction])
+            """ Takes in direction to choose from possible_directions, then using the getattr() method
+            it selects the current_room attribute and returns it with the chosen direction set as its
+            default value. Then assigns it to self.current_room. When the loop starts over and it calls 
+            display_info(), self.current_room is whatever room is linked to the previous room in the chosen 
+            direction"""
+            self.current_room = getattr(self.current_room, possible_directions[direction])
         except AttributeError:
             print("You cannot move in that direction")
