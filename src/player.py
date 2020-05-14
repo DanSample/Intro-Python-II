@@ -2,12 +2,33 @@
 # currently.
 
 class Player:
-    def __init__(self, name, current_room):
+    def __init__(self, name, current_room, inventory=[]):
         self.name = name
         self.current_room = current_room
+        self.inventory = inventory
 
     def display_info(self):
-        print(self.current_room)
+        print(f'{self.current_room}')
+
+    def drop_item(self, item):
+        self.item = item
+
+        for i in self.item:
+            if (i == self.item):
+                self.inventory.remove(i)
+                self.current_room.items.append(i)
+                
+    def take_item(self, item):
+         self.item = item
+
+         for i in item:
+             if (i == item):
+                 self.current_room.items.remove(i)
+                 self.inventory.append(i)           
+
+    def display_inventory(self):
+        item_list = " ".join(str(x) for x in self.inventory)
+        print(f'{item_list}')
 
     def move_to(self, direction):
         self.direction = direction
